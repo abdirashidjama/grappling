@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.FileOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
+import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import android.content.Context;
 import android.content.Intent;
@@ -38,24 +39,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        // Handle the logic for the requestCode, resultCode and data returned...
 
-        String name = data.getStringExtra("nameofmove");
-        Technique obj= new Technique(name);
-        try {
-            String FILENAME= "techniques.txt";
-            FileOutputStream fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
-            ObjectOutputStream os = new ObjectOutputStream(fos);
-            os.writeObject(obj);
-            os.close();
-            fos.close();
-        }
-        catch(FileNotFoundException e){
-            e.printStackTrace();
-        }
-        catch (IOException e){
-            e.printStackTrace();
-        }
+
     }
 
 }

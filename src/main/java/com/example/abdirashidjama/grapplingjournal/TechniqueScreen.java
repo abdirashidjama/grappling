@@ -29,6 +29,12 @@ public class TechniqueScreen extends AppCompatActivity {
 
         //Intent Main = getIntent();
         //String name = Main.getStringExtra().getString();
+        String test = "does it work";
+        Technique testob = new Technique(test,"yes");
+
+        String filename = "myfile";
+        FileReadandWrite.write_file(this, filename,testob.toString());
+
         finish();
         setResult(MainActivity.RESULT_OK, getIntent());
 
