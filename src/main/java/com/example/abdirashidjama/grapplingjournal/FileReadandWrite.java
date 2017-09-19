@@ -27,9 +27,12 @@ public class FileReadandWrite {
             BufferedReader bufferedReader = new BufferedReader(isr);
             StringBuilder sb = new StringBuilder();
             String line;
+            String newline;
             while ((line = bufferedReader.readLine()) != null) {
                 sb.setLength(0);
-                techniques.add(sb.append(line).toString());
+                if((newline = sb.append(line).toString())!="") {
+                    techniques.add(newline);
+                }
 
             }
             //techniques.add(sb.toString());

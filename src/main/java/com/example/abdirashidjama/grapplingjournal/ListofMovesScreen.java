@@ -24,7 +24,6 @@ public class ListofMovesScreen extends AppCompatActivity {
         setContentView(R.layout.activity_listof_moves_screen);
         listView = (ListView) findViewById(R.id.list);
         String[] tech = new String[techniques.size()];
-        FileReadandWrite.write_file(this, "myfile","doesitwrite over");
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, FileReadandWrite.read_file(this,"myfile"));
         listView.setAdapter(adapter);
 

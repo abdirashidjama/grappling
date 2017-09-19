@@ -13,7 +13,9 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import android.content.Context;
 import android.content.Intent;
-
+import android.widget.Button;
+import android.view.View.OnClickListener;
+import android.widget.TextView;
 
 
 public class TechniqueScreen extends AppCompatActivity {
@@ -25,19 +27,16 @@ public class TechniqueScreen extends AppCompatActivity {
 
     }
 
-    public void OnSaveTechnique(View view) {
+    public void OnSaveTechnique(View view){
 
-        //Intent Main = getIntent();
-        //String name = Main.getStringExtra().getString();
-        String test = "does it work";
-        Technique testob = new Technique(test,"yes");
-
+        TextView nameofmove= (TextView) findViewById(R.id.nameofmove);
         String filename = "myfile";
-        FileReadandWrite.write_file(this, filename,testob.toString());
-
+        String name = nameofmove.getText().toString();
+        TextView positionofmove = (TextView) findViewById(R.id.positionofmove);
+        String position = positionofmove.getText().toString();
+        FileReadandWrite.write_file(this, filename, new Technique(name, position).toString());
         finish();
         setResult(MainActivity.RESULT_OK, getIntent());
+        }
 
-
-    }
 }
